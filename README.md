@@ -3,7 +3,7 @@
 **[🇷🇺 Читать на русском](README.ru.md)**
 
 <p align="center">
-  <img src="assets/cover.jpg" alt="YouTube Publisher" width="600">
+  <img src=".github/cover.jpg" alt="YouTube Publisher" width="600">
 </p>
 
 > An AI agent skill that turns "upload this recording to YouTube" into a fully automated pipeline.  
@@ -39,16 +39,21 @@ The skill handles the entire pipeline:
 
 ### With Any AI Agent
 
-Drop the `SKILL.md` and `scripts/` folder where your agent can read them:
-
-- **Claude Code** — put in your project root or `CLAUDE.md` references
-- **Codex** — add to your workspace
-- **Gemini CLI** — include in context
-- **OpenClaw** — copy to `~/.openclaw/workspace/skills/youtube-publisher/`
+The skill is two things: `SKILL.md` (instructions) and `scripts/` (code). Copy them into your agent's workspace:
 
 ```bash
 git clone https://github.com/smixs/youtube-publisher.git
+
+# Claude Code / Codex / Gemini CLI — into your project
+mkdir -p skills/youtube-publisher
+cp youtube-publisher/SKILL.md skills/youtube-publisher/
+cp -r youtube-publisher/scripts skills/youtube-publisher/
+
+# OpenClaw
+cp -r youtube-publisher/{SKILL.md,scripts} ~/.openclaw/workspace/skills/youtube-publisher/
 ```
+
+That's it — `SKILL.md` + `scripts/`. Everything else in this repo (README, LICENSE, .github) is packaging for GitHub, not part of the skill.
 
 The agent reads `SKILL.md`, understands the pipeline, and runs it. Just say:
 - *"залей запись созвона на ютуб"*
@@ -72,8 +77,8 @@ You need OAuth credentials for Google Drive (download) and YouTube (upload):
 1. Go to [Google Cloud Console](https://console.cloud.google.com)
 2. Create a project → enable **Google Drive API** and **YouTube Data API v3**
 3. Create OAuth 2.0 credentials (Desktop app) → download JSON
-4. Rename to `google-oauth-client.json`, place in `config/`
-5. Run `python3 scripts/setup_oauth.py` to authorize
+4. Rename to `google-oauth-client.json`, place in the skill's root or `scripts/` folder
+5. Run `python3 scripts/setup_oauth.py` to authorize (saves tokens next to client file)
 
 Required scopes: `drive.readonly`, `youtube.upload`, `youtube`
 
@@ -82,13 +87,13 @@ Required scopes: `drive.readonly`, `youtube.upload`, `youtube`
 **Fireworks AI** (recommended: $0.0009/min — a 1-hour video costs 5 cents)
 ```bash
 export FIREWORKS_API_KEY=your_key
-# or save to config/fireworks-api-key.txt
+# or save to skills/youtube-publisher/fireworks-api-key.txt
 ```
 
 **Deepgram Nova-3** (alternative: $0.0077/min, great quality)
 ```bash
 export DEEPGRAM_API_KEY=your_key
-# or save to config/deepgram-api-key.txt
+# or save to skills/youtube-publisher/deepgram-api-key.txt
 ```
 
 ### 3. ffmpeg
@@ -131,8 +136,8 @@ Clean up temp files
 
 The script searches for credentials in this order:
 
-1. Skill root → `youtube-publisher/`
-2. Config dir → `youtube-publisher/config/`
+1. Skill root → `skills/youtube-publisher/`
+2. Scripts dir → `skills/youtube-publisher/scripts/`
 3. Workspace → `~/.openclaw/workspace/scripts/`
 4. Environment variables
 

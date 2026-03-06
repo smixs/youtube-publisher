@@ -3,7 +3,7 @@
 **[🇬🇧 Read in English](README.md)**
 
 <p align="center">
-  <img src="assets/cover.jpg" alt="YouTube Publisher" width="600">
+  <img src=".github/cover.jpg" alt="YouTube Publisher" width="600">
 </p>
 
 > Скилл для AI-агента, который превращает "залей запись на ютуб" в полностью автоматический пайплайн.  
@@ -37,16 +37,21 @@
 
 ### С любым AI-агентом
 
-Положите `SKILL.md` и папку `scripts/` туда, где агент сможет их прочитать:
-
-- **Claude Code** — в корень проекта или через ссылку в CLAUDE.md
-- **Codex** — в рабочую папку
-- **Gemini CLI** — в контекст
-- **OpenClaw** — в `~/.openclaw/workspace/skills/youtube-publisher/`
+Скилл - это `SKILL.md` (инструкции) и `scripts/` (код). Скопируйте их в workspace агента:
 
 ```bash
 git clone https://github.com/smixs/youtube-publisher.git
+
+# Claude Code / Codex / Gemini CLI — в папку проекта
+mkdir -p skills/youtube-publisher
+cp youtube-publisher/SKILL.md skills/youtube-publisher/
+cp -r youtube-publisher/scripts skills/youtube-publisher/
+
+# OpenClaw
+cp -r youtube-publisher/{SKILL.md,scripts} ~/.openclaw/workspace/skills/youtube-publisher/
 ```
+
+Всё — `SKILL.md` + `scripts/`. Остальное в репо (README, LICENSE, .github) — обвязка для GitHub, не часть скилла.
 
 Агент читает `SKILL.md`, понимает пайплайн и выполняет его. Просто скажите:
 - *«Залей запись созвона на ютуб»*
@@ -70,21 +75,21 @@ python3 scripts/publish.py "https://drive.google.com/file/d/abc123/view"
 1. [Google Cloud Console](https://console.cloud.google.com) → создать проект
 2. Включить **Google Drive API** и **YouTube Data API v3**
 3. Создать OAuth 2.0 (Desktop app) → скачать JSON
-4. Переименовать в `google-oauth-client.json`, положить в `config/`
-5. Запустить `python3 scripts/setup_oauth.py` для авторизации
+4. Переименовать в `google-oauth-client.json`, положить в корень скилла или `scripts/`
+5. Запустить `python3 scripts/setup_oauth.py` для авторизации (токены сохранятся рядом)
 
 ### 2. Ключ транскрипции (хотя бы один)
 
 **Fireworks AI** (рекомендуется: $0.0009/мин — часовое видео за 5 центов)
 ```bash
 export FIREWORKS_API_KEY=your_key
-# или сохранить в config/fireworks-api-key.txt
+# или сохранить в skills/youtube-publisher/fireworks-api-key.txt
 ```
 
 **Deepgram Nova-3** (альтернатива: $0.0077/мин, отличное качество)
 ```bash
 export DEEPGRAM_API_KEY=your_key
-# или сохранить в config/deepgram-api-key.txt
+# или сохранить в skills/youtube-publisher/deepgram-api-key.txt
 ```
 
 ### 3. ffmpeg

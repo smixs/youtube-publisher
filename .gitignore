@@ -1,15 +1,14 @@
-# Credentials (never commit these!)
-config/google-oauth-client.json
-config/google-oauth-tokens.json
-config/*.txt
+# Credentials (never commit!)
+google-oauth-client.json
+google-oauth-tokens.json
+*-api-key.txt
 *.key
 
 # Python
 __pycache__/
 *.pyc
-*.pyo
 
-# Temp files
+# Temp
 *.mp4
 *.mp3
 *.wav
@@ -17,7 +16,3 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
-
-# IDE
-.vscode/
-.idea/
