@@ -2,6 +2,10 @@
 
 **[🇬🇧 Read in English](README.md)**
 
+<p align="center">
+  <img src="assets/cover.jpg" alt="YouTube Publisher" width="600">
+</p>
+
 > Одна команда. Ссылка на Google Drive → опубликованное видео на YouTube.  
 > С транскриптом, таймкодами и метаданными. Полностью автоматически.
 

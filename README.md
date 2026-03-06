@@ -2,6 +2,10 @@
 
 **[🇷🇺 Читать на русском](README.ru.md)**
 
+<p align="center">
+  <img src="assets/cover.jpg" alt="YouTube Publisher" width="600">
+</p>
+
 > One command. Google Drive link in → published YouTube video out.  
 > With transcript, timestamps, and metadata. Fully automated.
 
