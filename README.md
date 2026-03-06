@@ -6,7 +6,8 @@
   <img src="assets/cover.jpg" alt="YouTube Publisher" width="600">
 </p>
 
-> An [OpenClaw](https://github.com/openclaw/openclaw) skill that turns "upload this recording to YouTube" into a fully automated pipeline.  
+> An AI agent skill that turns "upload this recording to YouTube" into a fully automated pipeline.  
+> Works with Claude Code, Codex, Gemini CLI, [OpenClaw](https://github.com/openclaw/openclaw), or any agent with terminal access.  
 > Your agent downloads from Drive, uploads to YouTube, transcribes, generates timestamps and metadata — you just say the word.
 
 ---
@@ -36,17 +37,20 @@ The skill handles the entire pipeline:
 
 ## Install
 
-### As an OpenClaw Skill
+### With Any AI Agent
+
+Drop the `SKILL.md` and `scripts/` folder where your agent can read them:
+
+- **Claude Code** — put in your project root or `CLAUDE.md` references
+- **Codex** — add to your workspace
+- **Gemini CLI** — include in context
+- **OpenClaw** — copy to `~/.openclaw/workspace/skills/youtube-publisher/`
 
 ```bash
-# Copy into your workspace skills directory
 git clone https://github.com/smixs/youtube-publisher.git
-cp -r youtube-publisher ~/.openclaw/workspace/skills/youtube-publisher
 ```
 
-Or download the `.skill` package from [Releases](https://github.com/smixs/youtube-publisher/releases).
-
-The agent picks up the skill automatically. Just say things like:
+The agent reads `SKILL.md`, understands the pipeline, and runs it. Just say:
 - *"залей запись созвона на ютуб"*
 - *"upload this Drive recording"*
 - *"транскрибируй и опубликуй"*

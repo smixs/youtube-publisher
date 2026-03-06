@@ -6,7 +6,8 @@
   <img src="assets/cover.jpg" alt="YouTube Publisher" width="600">
 </p>
 
-> Скилл для [OpenClaw](https://github.com/openclaw/openclaw), который превращает "залей запись на ютуб" в полностью автоматический пайплайн.  
+> Скилл для AI-агента, который превращает "залей запись на ютуб" в полностью автоматический пайплайн.  
+> Работает с Claude Code, Codex, Gemini CLI, [OpenClaw](https://github.com/openclaw/openclaw) и любым агентом с доступом к терминалу.  
 > Агент скачивает из Drive, заливает на YouTube, транскрибирует, генерирует таймкоды и метаданные — вы только говорите что делать.
 
 ---
@@ -34,17 +35,20 @@
 
 ## Установка
 
-### Как скилл OpenClaw
+### С любым AI-агентом
+
+Положите `SKILL.md` и папку `scripts/` туда, где агент сможет их прочитать:
+
+- **Claude Code** — в корень проекта или через ссылку в CLAUDE.md
+- **Codex** — в рабочую папку
+- **Gemini CLI** — в контекст
+- **OpenClaw** — в `~/.openclaw/workspace/skills/youtube-publisher/`
 
 ```bash
-# Скопировать в папку скиллов
 git clone https://github.com/smixs/youtube-publisher.git
-cp -r youtube-publisher ~/.openclaw/workspace/skills/youtube-publisher
 ```
 
-Или скачайте `.skill` пакет из [Releases](https://github.com/smixs/youtube-publisher/releases).
-
-Агент подхватывает скилл автоматически. Просто скажите:
+Агент читает `SKILL.md`, понимает пайплайн и выполняет его. Просто скажите:
 - *«Залей запись созвона на ютуб»*
 - *«Опубликуй видео из Drive»*
 - *«Транскрибируй и выложи»*
