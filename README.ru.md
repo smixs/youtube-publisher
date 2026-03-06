@@ -76,7 +76,7 @@ python3 scripts/setup_oauth.py
 
 Нужен хотя бы один API-ключ для транскрипции:
 
-**Вариант A — Fireworks AI** (рекомендуется: быстрее, $0.015/мин)
+**Вариант A — Fireworks AI** (рекомендуется: быстрее, $0.0009/мин)
 ```bash
 export FIREWORKS_API_KEY=your_key_here
 # или сохранить в config/fireworks-api-key.txt

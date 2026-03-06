@@ -76,7 +76,7 @@ Required scopes:
 
 You need at least one transcription API key:
 
-**Option A — Fireworks AI** (recommended: faster, $0.015/min)
+**Option A — Fireworks AI** (recommended: faster, $0.0009/min)
 ```bash
 export FIREWORKS_API_KEY=your_key_here
 # or save to config/fireworks-api-key.txt

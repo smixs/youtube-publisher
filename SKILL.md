@@ -33,7 +33,7 @@ Place both files in one of these locations (checked in order):
 
 ### 2. Transcription API key (at least one required)
 
-**Option A — Fireworks Whisper v3 Turbo** (preferred: faster, cheaper, $0.015/min):
+**Option A — Fireworks Whisper v3 Turbo** (preferred: faster, cheaper, $0.0009/min):
 - Set `FIREWORKS_API_KEY` env var, or
 - Save key to `youtube-publisher/config/fireworks-api-key.txt`
 
