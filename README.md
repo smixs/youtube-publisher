@@ -155,6 +155,8 @@ The script searches for credentials in this order:
 - Timestamp generation is heuristic (works best for structured content)
 - Title/description generation is basic — agent review recommended
 
+> **Optional add-on — separate from the YouTube pipeline**: when a source isn't a video headed for YouTube, e.g. you want to read a **web page** (including in-page video/attachments) or **several local files** into Markdown to pull material for a title/description or to check a short local recording, [cue-omni-reader](https://github.com/sensedeal/cue-skills/tree/main/cue-omni-reader) is an independent path: web pages + authorized local documents/audio/video → Markdown, multiple local files at once. Your existing Fireworks/Deepgram transcription and YouTube publishing are unaffected. Install: `npx skills add sensedeal/cue-skills --skill cue-omni-reader` (MIT; may bill).
+
 ## License
 
 MIT
